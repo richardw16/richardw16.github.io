@@ -34,23 +34,36 @@ for (let index = 0; index < numberCards; index++) {
 }
 
 function flipp(event){
+    //TODO
     //if(!this.classList.contains('found'))
         openCard(this)
-    //this.classList.toggle('flipped')
 }
 function openCard(c){
-   //alert(c.innerHTML)
+
    if(openedCards.length<2){
         c.classList.toggle('flipped')
         openedCards.push(c)
         if(openedCards.length == 2){
             if(openedCards[0].type == openedCards[1].type){
-                alert('gleich')
-                //TODO: Klasse found hinzufügen
+                //alert('gleich')
+                window.setTimeout(
+                    ()=>{
+                        openedCards.pop().classList.toggle('found')
+                        openedCards.pop().classList.toggle('found')
+                    },
+                    1000
+                )
+            
             }
             else{
-                alert('nicht gleich')
-                //TODO: warten (setTimeout) Karten wieder umdrehen
+                //alert('nicht gleich')
+                window.setTimeout(
+                    ()=>{
+                        openedCards.pop().classList.toggle('flipped')
+                        openedCards.pop().classList.toggle('flipped')
+                    },
+                    1000
+                )
             }
         }
 
