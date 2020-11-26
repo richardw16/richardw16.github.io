@@ -34,12 +34,27 @@ for (let index = 0; index < numberCards; index++) {
 }
 
 function flipp(event){
-    if(!this.classList.contains('found'))
+    //if(!this.classList.contains('found'))
         openCard(this)
     //this.classList.toggle('flipped')
 }
 function openCard(c){
-    alert(c.innerHTML)
+   //alert(c.innerHTML)
+   if(openedCards.length<2){
+        c.classList.toggle('flipped')
+        openedCards.push(c)
+        if(openedCards.length == 2){
+            if(openedCards[0].type == openedCards[1].type){
+                alert('gleich')
+                //TODO: Klasse found hinzufügen
+            }
+            else{
+                alert('nicht gleich')
+                //TODO: warten (setTimeout) Karten wieder umdrehen
+            }
+        }
+
+   }
 }
 
 function shuffle(arra1) {
